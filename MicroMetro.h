@@ -46,13 +46,13 @@ public:
         reset();
     }
 
-    unsigned long read()
+    unsigned long read() const
     {
         if (!b_running) return 0;
         return micros() - previous_micros;
     }
 
-    unsigned long read_ms()
+    unsigned long read_ms() const
     {
         return read() / 1000;
     }
@@ -63,7 +63,7 @@ public:
         b_running = false;
     }
 
-    bool isRunning() { return b_running; }
+    bool isRunning() const { return b_running; }
 
 private:
     bool autoreset;
